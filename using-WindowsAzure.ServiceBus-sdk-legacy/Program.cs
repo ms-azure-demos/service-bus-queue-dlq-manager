@@ -21,13 +21,13 @@ namespace DeadLetterProcessor
             switch (option)
             {
                 case 0:
-                    WindowsAzureSDK.SimulateFailure(connectionString, queueName);
+                    await WindowsAzureSDK.SimulateFailure(connectionString, queueName);
                     return;
                 case 1:
-                    WindowsAzureSDK.DequeueMessage(connectionString, queueName, count);
+                    await WindowsAzureSDK.DequeueMessage(connectionString, queueName, count);
                     break;
                 case 2:
-                    WindowsAzureSDK.ReSubmitDeadLetterMessages(connectionString, queueName, count);
+                    await WindowsAzureSDK.ReSubmitDeadLetterMessages(connectionString, queueName, count);
                     break;
             }
             Console.WriteLine("Press any key to exit...");
